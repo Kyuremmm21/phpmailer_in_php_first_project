@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteRule ^styles\.css$ assets/styles.css [L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^(action|approve_submission|assign_contact|delete_assignment|delete_contact|delete_submission|delete_user|download_assignment|export_logs|logout|reject_submission|toggle_user_status|update_assignment_status|update_profile|update_user_status)\.php$ actions/$1.php [L]
+RewriteRule ^([A-Za-z0-9_-]+\.php)$ pages/$1 [L]
